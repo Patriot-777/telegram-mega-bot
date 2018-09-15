@@ -1,0 +1,14 @@
+{
+  "name": "bot_telegramMega",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Yaroslav Andreev",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.29.0"
+  }
+}
