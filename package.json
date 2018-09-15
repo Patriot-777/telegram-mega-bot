@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node index.js"
   },
+"engines": {
+    "node": ""
+  },
   "author": "Yaroslav Andreev",
   "license": "ISC",
   "dependencies": {
