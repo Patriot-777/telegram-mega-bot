@@ -5,6 +5,35 @@ var token = process.env.BOT_TOKEN;
 // Включить опрос сервера
 var bot = new TelegramBot(token, {polling: true});
 
+// Мой айди (Создателя бота): ID: 655231019
+
+// bot.on('edited.message', function(msg) {
+//     var chatId = msg.chat.id;
+//     var senderId = msg.from.id;
+//     var senderName = msg.from.username;
+//     var msgText = msg.text;
+   
+//     bot.sendMessage(chatId, senderName + " удалил сообщение: " + msgText + "\nЕго айди: " + senderId);
+//   });
+
+// Написать мне ... (/echo Hello World! - пришлет сообщение с этим приветствием.)
+bot.onText(/!скажи (.+)/, function (msg, match) {
+    var chatId = msg.chat.id;
+    var resp = match[1];
+    bot.sendMessage(chatId, resp);
+});
+
+bot.onText(/!id/, function (msg) {
+    var chatId = msg.chat.id;
+    bot.sendMessage(chatId, "ChatID: "+chatId);
+});
+
+bot.onText(/!мой id/, function (msg) {
+    var chatId = msg.chat.id;
+    var userId = msg.from.id;
+    bot.reply(chatId, "ID: "+userId);
+});
+
 var pary1 = {
     "0": "1. Укр. Мова",
     "1": "2. Iноземна Мова",
@@ -39,7 +68,7 @@ var pary5 = {
 
 var com = ["1: скажи", "2: пары *день недели*"];
 
-bot.onText(/команды/, function (msg) {
+bot.onText(/!команды/, function (msg) {
     var chatId = msg.chat.id;
     var text = "";
 
@@ -48,7 +77,7 @@ bot.onText(/команды/, function (msg) {
     bot.sendMessage(chatId, "Команды: "+"\n\n"+text);
 });
 
-bot.onText(/пары понедельник/, function (msg) {
+bot.onText(/!пары понедельник/, function (msg) { if (chatId != -258056732) return;
     var chatId = msg.chat.id;
     var text = "";
     
@@ -57,7 +86,7 @@ bot.onText(/пары понедельник/, function (msg) {
     bot.sendMessage(chatId, text);
 });
 
-bot.onText(/пары вторник/, function (msg) {
+bot.onText(/!пары вторник/, function (msg) { if (chatId != -258056732) return;
     var chatId = msg.chat.id;
     var text = "";
     
@@ -66,7 +95,7 @@ bot.onText(/пары вторник/, function (msg) {
     bot.sendMessage(chatId, text);
 });
 
-bot.onText(/пары среда/, function (msg) {
+bot.onText(/!пары среда/, function (msg) { if (chatId != -258056732) return;
     var chatId = msg.chat.id;
     var text = "";
     
@@ -75,7 +104,7 @@ bot.onText(/пары среда/, function (msg) {
     bot.sendMessage(chatId, text);
 });
 
-bot.onText(/пары четверг/, function (msg) {
+bot.onText(/!пары четверг/, function (msg) { if (chatId != -258056732) return;
     var chatId = msg.chat.id;
     var text = "";
     
@@ -84,25 +113,13 @@ bot.onText(/пары четверг/, function (msg) {
     bot.sendMessage(chatId, text);
 });
 
-bot.onText(/пары пятница/, function (msg) {
+bot.onText(/!пары пятница/, function (msg) { if (chatId != -258056732) return;
     var chatId = msg.chat.id;
     var text = "";
     
     for (key in pary5) { text += pary5[key] + "\n"; }
     
     bot.sendMessage(chatId, text);
-});
-
-// Написать мне ... (/echo Hello World! - пришлет сообщение с этим приветствием.)
-bot.onText(/скажи (.+)/, function (msg, match) {
-    var chatId = msg.chat.id;
-    var resp = match[1];
-    bot.sendMessage(chatId, resp);
-});33
-
-bot.onText(/id/, function (msg) {
-    var chatId = msg.chat.id;
-    bot.sendMessage(chatId, "ChatID: "+chatId);
 });
 
 // Простая команда без параметров.
