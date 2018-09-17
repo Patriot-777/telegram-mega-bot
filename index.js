@@ -13,8 +13,8 @@ bot.on("message", function (msg) {
     var prefix = "/";
     
     function SrtCheck() {
-        //var id = "-258056732";
-        var id = "-298488871";
+        var id = "-258056732";
+        //var id = "-298488871";
         if (chatId == id) return true;
     }
 
