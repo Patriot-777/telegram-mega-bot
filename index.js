@@ -11,52 +11,11 @@ bot.on("message", function (msg) {
     var senderId = msg.from.id;
     var msgId = msg.message_id;
     var prefix = "/";
-
-    function TetTime(){
-
-        // Internal timezone settings
-        var offset_hr = 0;
-        var offset_ms = 0;
-        
-        // Get current default timezone in hours
-        window.getTimezoneOffset = function getTimezoneOffset ( ) { return offset_hr; }
-        
-        // Set current default timezone in hours
-        window.setTimezoneOffset = function setTimezoneOffset ( offset ) { 
-          offset_hr = offset * 1 ? offset * 1 : 0;
-          offset_ms = offset ? offset * 60 * 60 * 1000 : 0;
-        }
-        
-        // Create a date with default timezone
-        window.newDate = function newDate ( year, month, day, hour, min, sec, ms ) {
-            // Create base date object
-            var d;
-            switch ( arguments.length ) {
-              case 0 : d = new Date( ); break;
-              case 1 : d = new Date( year ); break;
-              case 2 : d = new Date( year, month ); break;
-              case 3 : d = new Date( year, month, day ); break;
-              case 4 : d = new Date( year, month, day, hour ); break;
-              case 5 : d = new Date( year, month, day, hour, min ); break;
-              case 6 : d = new Date( year, month, day, hour, min, sec ); break;
-              case 7 : d = new Date( year, month, day, hour, min, sec, ms ); break;
-            }
-            // Convert to utc time
-            var offset = d.getTimezoneOffset();
-            if ( offset || offset_ms ) d.setTime ( d.getTime() + offset * 60 * 1000 + offset_ms );
-            return d;
-          }
-        } TestTime();
-        
-        setTimezoneOffset( '+3' );
-
-        var myDateHours = newDate(new Date().getHours());
-        var myDateMinutes = newDate(new Date().getMinutes());
-        var myDateDay = newDate(new Date().getMinutes());
+    var x = new Date();
     
     function SrtCheck() {
-        var id = "-258056732";
-        //var id = "-298488871";
+        //var id = "-258056732";
+        var id = "-298488871";
         if (chatId.toString() == id) return true;
     }
 
@@ -85,7 +44,7 @@ bot.on("message", function (msg) {
         case "acc": bot.forwardMessage(chatId, chatId, msgId);
          bot.sendMessage(chatId, `👕Username: ${msg.from.first_name} ${msg.from.last_name}\n👖Твой id: ${senderId}`);
         break;
-        case "time":  bot.sendMessage(chatId, "Time: " + `${myDateHours}:${myDateMinutes}`); 
+        case "time":  bot.sendMessage(chatId, "Time: " + `${myDateHours+3}:${myDateMinutes}`); 
         break;
         // default: bot.forwardMessage(chatId, chatId, msgId); bot.sendMessage(chatId, "404: Command not found.");
         // break;
