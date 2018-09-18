@@ -43,6 +43,8 @@ bot.on("message", function (msg) {
         case "acc": bot.forwardMessage(chatId, chatId, msgId);
          bot.sendMessage(chatId, `👕Username: ${msg.from.first_name} ${msg.from.last_name}\n👖Твой id: ${senderId}`);
         break;
+        case "time":  bot.sendMessage(chatId, "Time: "+new Date().getHours() +":"+ new Date().getMinutes()); 
+        break;
         // default: bot.forwardMessage(chatId, chatId, msgId); bot.sendMessage(chatId, "404: Command not found.");
         // break;
     }
