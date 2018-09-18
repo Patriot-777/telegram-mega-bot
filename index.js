@@ -1,17 +1,18 @@
 
 var TelegramBot = require('node-telegram-bot-api');
-var token = process.env.BOT_TOKEN;
+var token = process.emv.BOT_TOKEN;
 var bot = new TelegramBot(token, {polling: true});
 
-var time;
+var dateHours = new Date().getHours();
+var dateMinutes = new Date().getMinutes();
 
 bot.on("message", function (msg) {
     var chatId = msg.chat.id;
     var messageText = msg.text.toLowerCase();
     var senderId = msg.from.id;
     var msgId = msg.message_id;
+    var time = new Date();
     var prefix = "/";
-    var x = new Date();
     
     function SrtCheck() {
         //var id = "-258056732";
@@ -44,7 +45,7 @@ bot.on("message", function (msg) {
         case "acc": bot.forwardMessage(chatId, chatId, msgId);
          bot.sendMessage(chatId, `👕Username: ${msg.from.first_name} ${msg.from.last_name}\n👖Твой id: ${senderId}`);
         break;
-        case "time":  bot.sendMessage(chatId, "Time: " + `${new Date().getHours()+3}:${new Date().getMinutes()}`); 
+        case "time":  bot.sendMessage(chatId, "Time: " + `${dateHours+3}:${dateMinutes}`); 
         break;
         // default: bot.forwardMessage(chatId, chatId, msgId); bot.sendMessage(chatId, "404: Command not found.");
         // break;
@@ -94,19 +95,6 @@ bot.on("message", function (msg) {
         "2": "3. Осн. теор. ел. кiл🔌 [null]\n👨Хоржан О.О."
     } };
 
-    //time = new Date(msg.date);
-
-    // function checkDay() {
-    
-    //     for (var i = 1; i <=5; i++) {
-    //         if (time.getDay() == i) {
-    //             for (key in pary[`${i}`]) { otvet += pary[`${i}`][`${key}`] + "\n"; }
-    //             bot.forwardMessage(chatId, chatId, msgId); 
-    //             return bot.sendMessage(chatId, "Пары на ваш день недели такие: \n\n"+otvet);
-    //         }
-    //     }
-    // } console.log(checkDay());
-
     if (SrtCheck() != true) {return;}
     else { 
         var srtText = text.split(" ");
@@ -128,6 +116,31 @@ bot.on("message", function (msg) {
 
     //bot.sendMessage(chatId, text);
 });
+
+//var time = new Date();
+
+function checkDay() {
+    switch(new Date().getDay()) {
+        case 1:
+        console.log("Сегодня понедельник");
+        break;
+        case 2: if (new Date().getHours() == "20" && new Date().getMinutes() == "28") bot.sendMessage(-298488871, `${new Date().getHours()}:${new Date().getHours()} (TimeTest)`);
+        console.log();
+        break;
+        case 3: 
+        console.log("Сегодня среда");
+        break;
+        case 4: 
+        console.log("Сегодня четверг");
+        break;
+        case 5: 
+        console.log("Сегодня пятница");
+        break;
+    } 
+
+}
+
+setInterval(checkDay, 30000);
 
 bot.on('polling_error', (error) => {
     console.log(error);  // => 'EFATAL'
