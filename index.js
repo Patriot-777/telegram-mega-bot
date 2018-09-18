@@ -43,7 +43,7 @@ bot.on("message", function (msg) {
         case "acc": bot.forwardMessage(chatId, chatId, msgId);
          bot.sendMessage(chatId, `👕Username: ${msg.from.first_name} ${msg.from.last_name}\n👖Твой id: ${senderId}`);
         break;
-        case "time":  bot.sendMessage(chatId, "Time: "+new Date().toLocaleString('ua-UA').getHours() +":"+ new Date().toLocaleString('ua-UA').getMinutes()); 
+        case "time":  bot.sendMessage(chatId, "Time: "+new Date().getHours().toLocaleString('ua-UA') +":"+ new Date().getMinutes().toLocaleString('ua-UA')); 
         break;
         // default: bot.forwardMessage(chatId, chatId, msgId); bot.sendMessage(chatId, "404: Command not found.");
         // break;
@@ -52,7 +52,7 @@ bot.on("message", function (msg) {
     bot.onText(/\/test/, function (msg) {
         var chatId = msg.chat.id;
 
-        bot.sendMessage(chatId, "✊");
+        bot.sendMessage(chatId, "✊" + new Date().getMinutes().toLocaleString('ua-UA'));
     });
 
     bot.onText(/\/say (.+)/, function (msg, match) {
