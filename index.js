@@ -3,41 +3,74 @@ var TelegramBot = require('node-telegram-bot-api');
 var token = process.env.BOT_TOKEN;
 var bot = new TelegramBot(token, {polling: true});
 
-var dateHours = new Date().getHours();
-var dateMinutes = new Date().getMinutes();
+var pary = { "1": {
+    "0": "1. Укр. Мова🔰 [305]\n👩Неволiна О.В.",
+    "1": "2. Iноземна Мова🔤 [420]\n👩Зозуля Т.I.",
+    "2": "3. ↔IКГ || Фiзика🔪 [503]|[418]\n👩Дорошенко Л.В.||П'яних I.М.",
+    "3": "4. | Вища математика🔢 [505]\n👩Дiмнич Л.М. |"
+},
+
+ "2": {
+    "0": "1. Основи Фiл. Знань🎩 [413]\n👩Iванишина В.В.",
+    "1": "2. Фiзика💀 [418]\n👩П'яних I.М.",
+    "2": "3. Екологiя🍀 [null]\n👩null",
+    "3": "4. Художня культура🎨 [005]\n👨Ремезовський М.В."
+},
+
+ "3": {
+    "0": "1. Вища математика🔢 [505]\n👩Дiмнич Л.М.",
+    "1": "2. Осн. теор. ел. кiл🔌 [null]\n👨Хоржан О.О.",
+    "2": "3. Iнформатика💻 [null]\n👩Андрiйченко Т.Р."
+},
+
+ "4": {
+    "0": "1. Технологiї📡 [null]\n👨Нелуп В.М.",
+    "1": "2. Правознавство☝ [null]\n👩Зульфiгарова Н.О.",
+    "2": "3. Фiзкультура🏃 [Возле 418]\n👨Олександер Т.В. & 👩Красильнюк О.I."
+},
+
+ "5": {
+    "0": "1. IКГ↔ [503]\n👩Дорошенко Л.В.",
+    "1": "2. Фiзика💀 [418]\n👩П'яних I.М.",
+    "2": "3. Осн. теор. ел. кiл🔌 [null]\n👨Хоржан О.О."
+} };
+
+var timeDzilin = {"0": "08:30 - 09:45 🕘",
+"1": "09:55 - 11:10 🕙",
+"2": "11:20 - 12:35 🕚",
+"3":  "12:45 - 14:00 🕑"
+};
 
 bot.on("message", function (msg) {
+
+    var prefix = "/";
+
+    if (!msg.text.startsWith(prefix)) return;
+    var text = msg.text.slice(1).toLowerCase();
+    
     var chatId = msg.chat.id;
-    var messageText = msg.text.toLowerCase();
     var senderId = msg.from.id;
     var msgId = msg.message_id;
     var time = new Date();
-    var prefix = "/";
     
     function SrtCheck() {
-        //var id = "-258056732";
-        var id = "-298488871";
-        if (chatId.toString() == id) return true;
+        var id = -258056732;
+        //var id = 655231019
+        //var id = -298488871;
+        if (chatId == id) return true;
+        else return false;
     }
 
-    if (!messageText.startsWith(prefix)) return;
-    text = messageText.slice(1);
-
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
-    var timeDzilin = {"0": "08:30 - 09:45 🕘",
-    "1": "09:55 - 11:10 🕙",
-    "2": "11:20 - 12:35 🕚",
-    "3":  "12:45 - 14:00 🕑"
-};
 
     switch(text) {
         case "cmd":
         case "команды":
         case "help": 
-        case "помощь": if (SrtCheck() == true) { com.push("/пары *день недели циферкой: от 1 до 5* 💬"); com.push("/время звонков 🔔"); } 
+        case "помощь": if (SrtCheck() == true) { com.push("/пари *цифра дня недiлi* 💬"); com.push("/час 🔔"); } 
         var cvCount = 0, cmdVar =""; 
         for (key in com) { cmdVar += cvCount+": " + com[key] + "\n"; cvCount++; };
-         bot.sendMessage(chatId, "Команды: \n\n"+cmdVar); 
+         bot.sendMessage(chatId, "Commands: \n\n"+cmdVar); 
         break;
         case "chatinfo": 
         bot.sendMessage(chatId, `Title: ${msg.chat.title}\nType: ${msg.chat.type}\nId: ${msg.chat.id}`);
@@ -45,7 +78,8 @@ bot.on("message", function (msg) {
         case "acc": bot.forwardMessage(chatId, chatId, msgId);
          bot.sendMessage(chatId, `👕Username: ${msg.from.first_name} ${msg.from.last_name}\n👖Твой id: ${senderId}`);
         break;
-        case "time":  bot.sendMessage(chatId, "Time: " + `${dateHours+3}:${dateMinutes}`); 
+        case "time":  var dateHours = new Date().getHours();
+        var dateMinutes = new Date().getMinutes(); bot.sendMessage(chatId, "Time: " + `${dateHours+3}:${dateMinutes}`); 
         break;
         // default: bot.forwardMessage(chatId, chatId, msgId); bot.sendMessage(chatId, "404: Command not found.");
         // break;
@@ -63,38 +97,6 @@ bot.on("message", function (msg) {
         bot.sendMessage(chatId, resp);
     });
 
-    var pary = { "1": {
-        "0": "1. Укр. Мова🔰 [305]\n👩Неволiна О.В.",
-        "1": "2. Iноземна Мова🔤 [420]\n👩Зозуля Т.I.",
-        "2": "3. ↔IКГ || Фiзика🔪 [503]|[418]\n👩Дорошенко Л.В.||П'яних I.М.",
-        "3": "4. | Вища математика🔢 [505]\n👩Дiмнич Л.М. |"
-    },
-    
-     "2": {
-        "0": "1. Основи Фiл. Знань🎩 [413]\n👩Iванишина В.В.",
-        "1": "2. Фiзика💀 [418]\n👩П'яних I.М.",
-        "2": "3. Екологiя🍀 [null]\n👩null",
-        "3": "4. Художня культура🎨 [005]\n👨Ремезовський М.В."
-    },
-    
-     "3": {
-        "0": "1. Вища математика🔢 [505]\n👩Дiмнич Л.М.",
-        "1": "2. Осн. теор. ел. кiл🔌 [null]\n👨Хоржан О.О.",
-        "2": "3. Iнформатика💻 [null]\n👩Андрiйченко Т.Р."
-    },
-    
-     "4": {
-        "0": "1. Технологiї📡 [null]\n👨Нелуп В.М.",
-        "1": "2. Правознавство☝ [null]\n👩Зульфiгарова Н.О.",
-        "2": "3. Фiзкультура🏃 [Возле 418]\n👨Олександер Т.В. & 👩Красильнюк О.I."
-    },
-    
-     "5": {
-        "0": "1. IКГ↔ [503]\n👩Дорошенко Л.В.",
-        "1": "2. Фiзика💀 [418]\n👩П'яних I.М.",
-        "2": "3. Осн. теор. ел. кiл🔌 [null]\n👨Хоржан О.О."
-    } };
-
     if (SrtCheck() != true) {return;}
     else { 
         var srtText = text.split(" ");
@@ -104,13 +106,13 @@ bot.on("message", function (msg) {
             if (srtText[1] == i.toString()) {
                 for (key in pary[`${i}`]) { otvet += pary[`${i}`][`${key}`] + " | " + timeDzilin[`${key}`] +"\n\n"; }
                 bot.forwardMessage(chatId, chatId, msgId); 
-                return bot.sendMessage(chatId, "✊ Пары на ваш день недели такие: \n\n"+otvet);
+                return bot.sendMessage(chatId, "✊ Пари на ваш день недiлi такi: \n\n"+otvet);
             }
         }
 
-        if (text == "время звонков") {
+        if (text == "час") {
             bot.forwardMessage(chatId, chatId, msgId); 
-            bot.sendMessage(chatId, "⌚ Расписание звонков: \n\n"+ "1. 08:30 - 09:45 🕘\n2. 09:55 - 11:10 🕙\n3. 11:20 - 12:35 🕚\n4. 12:45 - 14:00 🕑");
+            bot.sendMessage(chatId, "⌚ Розклад дзвiнкiв: \n\n"+ "1. 08:30 - 09:45 🕘\n2. 09:55 - 11:10 🕙\n3. 11:20 - 12:35 🕚\n4. 12:45 - 14:00 🕑");
         }
      }
 
@@ -119,28 +121,55 @@ bot.on("message", function (msg) {
 
 //var time = new Date();
 
-function checkDay() {
-    switch(new Date().getDay()) {
-        case 1:
-        console.log("Сегодня понедельник");
+function checkDay() { var date = new Date(); if (date.getHours() <= 7 || date.getHours() >= 15) return;
+    switch(date.getDay()) {
+        case 1: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
+        if (dateHours == "11" && dateMinutes == "20") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["1"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
+        else if (dateHours == "11" && dateMinutes == "25") bot.sendMessage(655231019, `Хто прийде пiсля дзвоника - опоздун!`);
+        else if (dateHours == "12" && dateMinutes == "45") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["1"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "14" && dateMinutes == "10") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["1"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "15" && dateMinutes == "35") bot.sendMessage(655231019, `Зараз може бути така пара: ${pary["1"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
+        else if (dateHours == "17" && dateMinutes == "0") bot.sendMessage(655231019, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["2"]["0"]}\n\n${pary["2"]["1"]}\n\n${pary["2"]["2"]}\n\n${pary["2"]["3"]}`);
+        else return;
         break;
-        case 2: if (new Date().getHours() == "20" && new Date().getMinutes() == "40") bot.sendMessage(-298488871, `${new Date().getHours()}:${new Date().getHours()} (TimeTest)`);
-        console.log();
+        case 2: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
+        if (dateHours == "11" && dateMinutes == "20") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["2"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
+        else if (dateHours == "11" && dateMinutes == "25") bot.sendMessage(655231019, `Хто прийде пiсля дзвоника - опоздун!`);
+        else if (dateHours == "12" && dateMinutes == "45") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["2"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "14" && dateMinutes == "10") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["2"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "15" && dateMinutes == "35") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["2"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
+        else if (dateHours == "17" && dateMinutes == "0") bot.sendMessage(655231019, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["3"]["0"]}\n\n${pary["3"]["1"]}\n\n${pary["3"]["2"]}`);
+        else return;
         break;
-        case 3: 
-        console.log("Сегодня среда");
+        case 3: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
+        if (dateHours == "11" && dateMinutes == "20") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["3"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
+        else if (dateHours == "11" && dateMinutes == "25") bot.sendMessage(655231019, `Хто прийде пiсля дзвоника - опоздун!`);
+        else if (dateHours == "12" && dateMinutes == "45") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["3"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "14" && dateMinutes == "10") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["3"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "15" && dateMinutes == "35") bot.sendMessage(655231019, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["4"]["0"]}\n\n${pary["4"]["1"]}\n\n${pary["4"]["2"]}`);
+        else return;
         break;
-        case 4: 
-        console.log("Сегодня четверг");
+        case 4: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
+        if (dateHours == "11" && dateMinutes == "20") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["4"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
+        else if (dateHours == "11" && dateMinutes == "25") bot.sendMessage(655231019, `Хто прийде пiсля дзвоника - опоздун!`);
+        else if (dateHours == "12" && dateMinutes == "45") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["4"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "14" && dateMinutes == "10") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["4"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "15" && dateMinutes == "20") bot.sendMessage(655231019, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["5"]["0"]}\n\n${pary["5"]["1"]}\n\n${pary["5"]["2"]}`);
+        else return;
         break;
-        case 5: 
-        console.log("Сегодня пятница");
+        case 5: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
+        if (dateHours == "11" && dateMinutes == "20") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["5"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
+        else if (dateHours == "11" && dateMinutes == "25") bot.sendMessage(655231019, `Хто прийде пiсля дзвоника - опоздун!`);
+        else if (dateHours == "12" && dateMinutes == "45") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["5"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "14" && dateMinutes == "10") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["5"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "15" && dateMinutes == "20") bot.sendMessage(655231019, `Бiльше пар сьогодi не буде.\n\nСписок пар можна дiзнатися по командi "/пары *цифра дня недiлi*"`);
+        else return;
         break;
-    } 
+    } //console.log(`${date.getDay()} - ${dateHours}:${dateMinutes}`);
 
 }
 
-setInterval(checkDay, 30000);
+setInterval(checkDay, 60000);
 
 bot.on('polling_error', (error) => {
     console.log(error);  // => 'EFATAL'
