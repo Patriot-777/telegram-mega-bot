@@ -124,7 +124,7 @@ function checkDay() {
         case 1:
         console.log("Сегодня понедельник");
         break;
-        case 2: if (new Date().getHours() == "20" && new Date().getMinutes() == "33") bot.sendMessage(-298488871, `${new Date().getHours()}:${new Date().getHours()} (TimeTest)`);
+        case 2: if (new Date().getHours() == "20" && new Date().getMinutes() == "40") bot.sendMessage(-298488871, `${new Date().getHours()}:${new Date().getHours()} (TimeTest)`);
         console.log();
         break;
         case 3: 
