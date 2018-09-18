@@ -79,7 +79,7 @@ bot.on("message", function (msg) {
          bot.sendMessage(chatId, `👕Username: ${msg.from.first_name} ${msg.from.last_name}\n👖Твой id: ${senderId}`);
         break;
         case "time":  var dateHours = new Date().getHours();
-        var dateMinutes = new Date().getMinutes(); bot.sendMessage(chatId, "Time: " + `${dateHours+3}:${dateMinutes}`); 
+        var dateMinutes = new Date().getMinutes(); bot.sendMessage(chatId, "Time: " + `${dateHours}:${dateMinutes}`); 
         break;
         // default: bot.forwardMessage(chatId, chatId, msgId); bot.sendMessage(chatId, "404: Command not found.");
         // break;
