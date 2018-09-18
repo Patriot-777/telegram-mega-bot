@@ -1,6 +1,6 @@
 
 var TelegramBot = require('node-telegram-bot-api');
-var token = '649462922:AAHLm2hoSrg6GyRtXO64V5_4akQ7gfIyQPQ';
+var token = process.env.BOT_TOKEN;
 var bot = new TelegramBot(token, {polling: true});
 
 var time;
