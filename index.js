@@ -1,6 +1,6 @@
 
 var TelegramBot = require('node-telegram-bot-api');
-var token = process.emv.BOT_TOKEN;
+var token = process.env.BOT_TOKEN;
 var bot = new TelegramBot(token, {polling: true});
 
 var dateHours = new Date().getHours();
@@ -124,7 +124,7 @@ function checkDay() {
         case 1:
         console.log("Сегодня понедельник");
         break;
-        case 2: if (new Date().getHours() == "20" && new Date().getMinutes() == "28") bot.sendMessage(-298488871, `${new Date().getHours()}:${new Date().getHours()} (TimeTest)`);
+        case 2: if (new Date().getHours() == "20" && new Date().getMinutes() == "33") bot.sendMessage(-298488871, `${new Date().getHours()}:${new Date().getHours()} (TimeTest)`);
         console.log();
         break;
         case 3: 
