@@ -144,9 +144,9 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
         case 3: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
         if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
         else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "8" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "9" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "11" && dateMinutes == "35") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["4"]["0"]}\n\n${pary["4"]["1"]}\n\n${pary["4"]["2"]}`);
+        else if (dateHours == "6" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "8" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "9" && dateMinutes == "35") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["4"]["0"]}\n\n${pary["4"]["1"]}\n\n${pary["4"]["2"]}`);
         else return;
         break;
         case 4: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
