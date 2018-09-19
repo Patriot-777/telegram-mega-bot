@@ -20,7 +20,7 @@ var pary = { "1": {
  "3": {
     "0": "1. Вища математика🔢 [505]\n👩Дiмнич Л.М.",
     "1": "2. Осн. теор. ел. кiл🔌 [105]\n👨Хоржан О.О.",
-    "2": "3. Iнформатика💻 [null]\n👩Андрiйченко Т.Р."
+    "2": "3. Iнформатика💻 [212]\n👩Андрiйченко Т.Р."
 },
 
  "4": {
@@ -126,43 +126,43 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
         case 1: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
         if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
         else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "6" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "8" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "9" && dateMinutes == "35") bot.sendMessage(id, `Зараз може бути така пара: ${pary["1"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
-        else if (dateHours == "11" && dateMinutes == "0") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["2"]["0"]}\n\n${pary["2"]["1"]}\n\n${pary["2"]["2"]}\n\n${pary["2"]["3"]}`);
+        else if (dateHours == "6" && dateMinutes == "43") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "8" && dateMinutes == "8") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "9" && dateMinutes == "33") bot.sendMessage(id, `Зараз може бути така пара: ${pary["1"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
+        else if (dateHours == "10" && dateMinutes == "58") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["2"]["0"]}\n\n${pary["2"]["1"]}\n\n${pary["2"]["2"]}\n\n${pary["2"]["3"]}`);
         else return;
         break;
         case 2: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
         if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["2"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
         else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "6" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["2"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "8" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["2"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "9" && dateMinutes == "35") bot.sendMessage(id, `Зараз буде така пара: ${pary["2"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
-        else if (dateHours == "11" && dateMinutes == "0") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["3"]["0"]}\n\n${pary["3"]["1"]}\n\n${pary["3"]["2"]}`);
+        else if (dateHours == "6" && dateMinutes == "43") bot.sendMessage(id, `Зараз буде така пара: ${pary["2"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "8" && dateMinutes == "8") bot.sendMessage(id, `Зараз буде така пара: ${pary["2"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "9" && dateMinutes == "33") bot.sendMessage(id, `Зараз буде така пара: ${pary["2"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
+        else if (dateHours == "10" && dateMinutes == "58") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["3"]["0"]}\n\n${pary["3"]["1"]}\n\n${pary["3"]["2"]}`);
         else return;
         break;
         case 3: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
         if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
         else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "6" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "8" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "9" && dateMinutes == "35") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["4"]["0"]}\n\n${pary["4"]["1"]}\n\n${pary["4"]["2"]}`);
+        else if (dateHours == "6" && dateMinutes == "43") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "8" && dateMinutes == "8") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "9" && dateMinutes == "33") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["4"]["0"]}\n\n${pary["4"]["1"]}\n\n${pary["4"]["2"]}`);
         else return;
         break;
         case 4: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
         if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["4"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
         else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "8" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["4"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "9" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["4"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "11" && dateMinutes == "20") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["5"]["0"]}\n\n${pary["5"]["1"]}\n\n${pary["5"]["2"]}`);
+        else if (dateHours == "6" && dateMinutes == "43") bot.sendMessage(id, `Зараз буде така пара: ${pary["4"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "8" && dateMinutes == "8") bot.sendMessage(id, `Зараз буде така пара: ${pary["4"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "9" && dateMinutes == "33") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["5"]["0"]}\n\n${pary["5"]["1"]}\n\n${pary["5"]["2"]}`);
         else return;
         break;
         case 5: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
         if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["5"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
         else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "8" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["5"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "9" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["5"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "11" && dateMinutes == "20") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nСписок пар можна дiзнатися по командi "/пары *цифра дня недiлi*"`);
+        else if (dateHours == "8" && dateMinutes == "43") bot.sendMessage(id, `Зараз буде така пара: ${pary["5"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "9" && dateMinutes == "8") bot.sendMessage(id, `Зараз буде така пара: ${pary["5"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "11" && dateMinutes == "33") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nСписок пар можна дiзнатися по командi "/пары *цифра дня недiлi*"`);
         else return;
         break;
     } //console.log(`${date.getDay()} - ${dateHours}:${dateMinutes}`);
