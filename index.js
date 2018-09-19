@@ -121,15 +121,15 @@ bot.on("message", function (msg) {
 
 //var time = new Date();
 
-function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.getHours() >= 12) return;
+function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.getHours() >= 12) return;  var id = -258056732;
     switch(date.getDay()) {
         case 1: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["1"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
-        else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(655231019, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "6" && dateMinutes == "45") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["1"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "8" && dateMinutes == "10") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["1"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "9" && dateMinutes == "35") bot.sendMessage(655231019, `Зараз може бути така пара: ${pary["1"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
-        else if (dateHours == "11" && dateMinutes == "0") bot.sendMessage(655231019, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["2"]["0"]}\n\n${pary["2"]["1"]}\n\n${pary["2"]["2"]}\n\n${pary["2"]["3"]}`);
+        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
+        else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
+        else if (dateHours == "6" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "8" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["1"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "9" && dateMinutes == "35") bot.sendMessage(id, `Зараз може бути така пара: ${pary["1"]["3"]}\n\nПочаток/Кiнець: ${timeDzilin["3"]}`);
+        else if (dateHours == "11" && dateMinutes == "0") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["2"]["0"]}\n\n${pary["2"]["1"]}\n\n${pary["2"]["2"]}\n\n${pary["2"]["3"]}`);
         else return;
         break;
         case 2: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
@@ -142,11 +142,11 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
         else return;
         break;
         case 3: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["3"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
-        else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(655231019, `Хто прийде пiсля дзвоника - опоздун!`);
-        else if (dateHours == "8" && dateMinutes == "45") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["3"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
-        else if (dateHours == "9" && dateMinutes == "10") bot.sendMessage(655231019, `Зараз буде така пара: ${pary["3"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
-        else if (dateHours == "11" && dateMinutes == "35") bot.sendMessage(655231019, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["4"]["0"]}\n\n${pary["4"]["1"]}\n\n${pary["4"]["2"]}`);
+        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["0"]}\n\nПочаток/Кiнець: ${timeDzilin["0"]}`);
+        else if (dateHours == "5" && dateMinutes == "25") bot.sendMessage(id, `Хто прийде пiсля дзвоника - опоздун!`);
+        else if (dateHours == "8" && dateMinutes == "45") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["1"]}\n\nПочаток/Кiнець: ${timeDzilin["1"]}`);
+        else if (dateHours == "9" && dateMinutes == "10") bot.sendMessage(id, `Зараз буде така пара: ${pary["3"]["2"]}\n\nПочаток/Кiнець: ${timeDzilin["2"]}`);
+        else if (dateHours == "11" && dateMinutes == "35") bot.sendMessage(id, `Бiльше пар сьогодi не буде.\n\nЗавтра будуть такi пари:\n\n ${pary["4"]["0"]}\n\n${pary["4"]["1"]}\n\n${pary["4"]["2"]}`);
         else return;
         break;
         case 4: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
