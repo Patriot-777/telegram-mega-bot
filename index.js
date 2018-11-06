@@ -99,11 +99,11 @@ bot.on("message", function (msg) {
 
     if (SrtCheck() != true) {return;}
     else { 
-        var srtText = text.split(" ");
+        var srtText = text;
         var otvet = "";
 
         for (var i = 1; i <=5; i++) {
-            if (srtText[1] == i.toString()) {
+            if (srtText == i.toString()) {
                 for (key in pary[`${i}`]) { otvet += pary[`${i}`][`${key}`] + " | " + timeDzilin[`${key}`] +"\n\n"; }
                 bot.forwardMessage(chatId, chatId, msgId); 
                 return bot.sendMessage(chatId, "✊ Пари на ваш день недiлi такi: \n\n"+otvet);
