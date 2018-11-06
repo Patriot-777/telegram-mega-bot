@@ -99,7 +99,7 @@ bot.on("message", function (msg) {
 
     if (SrtCheck() != true) {return;}
     else { 
-        var srtText = text.replace(/\s/g, " ");
+        var srtText = text.replace(/\s/g, "");
         var otvet = "";
 
         for (var i = 1; i <=5; i++) {
