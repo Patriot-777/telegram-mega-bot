@@ -58,7 +58,7 @@ bot.on("message", function (msg) {
         //var id = 655231019
         //var id = -298488871;
         if (chatId == id) return true;
-        else return false;
+        else return true;
     }
 
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
