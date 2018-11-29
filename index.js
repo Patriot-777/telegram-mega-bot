@@ -91,14 +91,6 @@ bot.on("message", function (msg) {
         bot.sendMessage(chatId, "✊");
     });
 
-    bot.onText(/\/deleted photo/, function (msg) {
-        var chatId = msg.chat.id;
-
-        var photo = 'https://i.imgur.com/rDN3Mn2.jpg';
-
-        bot.sendMessage(chatId, photo, {caption: ':D'});
-    });
-
     bot.onText(/\/say (.+)/, function (msg, match) {
         var chatId = msg.chat.id;
         var resp = match[1];
