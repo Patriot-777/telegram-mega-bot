@@ -105,24 +105,81 @@ bot.on("message", function (msg) {
             if (srtText.startsWith(`${i.toString()}`)) {
                 for (key in pary[`${i}`]) { otvet += pary[`${i}`][`${key}`] + " | " + timeDzilin[`${key}`] +"\n\n"; }
                 bot.forwardMessage(chatId, chatId, msgId); 
-                return bot.sendMessage(chatId, "✊ Пари на ваш день недiлi такi: \n\n"+otvet);
+                return bot.sendMessage(chatId, "✊ Пари на ваш день недiлi такi: \n\n"+otvet, {
+                    "reply_markup": {
+                        "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
+                        }
+                    });
             }
         }
 
-        if (text == "час") {
+        if (text == "дзвінки") {
             bot.forwardMessage(chatId, chatId, msgId); 
-            bot.sendMessage(chatId, "⌚ Розклад дзвiнкiв: \n\n"+ "1. 08:30 - 09:45 🕘\n2. 09:55 - 11:10 🕙\n3. 11:20 - 12:35 🕚\n4. 12:45 - 14:00 🕑");
-        }
+            bot.sendMessage(chatId, "⌚ Розклад дзвiнкiв: \n\n"+ "1. 08:30 - 09:45 🕘\n2. 09:55 - 11:10 🕙\n3. 11:20 - 12:35 🕚\n4. 12:45 - 14:00 🕑", {
+                "reply_markup": {
+                    "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
+                    }
+                });
+            }
      }
 
     //bot.sendMessage(chatId, text);
 });
 
+// var questions = [
+//     {
+//       title:'Сколько параметров можно передать функции ?',
+//       buttons: [
+//           [{ text: 'Ровно столько, сколько указано в определении функции.', callback_data: '0_1' }],
+//           [{ text: 'Сколько указано в определении функции или меньше.', callback_data: '0_2' }],
+//           [{ text: 'Сколько указано в определении функции или больше.', callback_data: '0_3' }],
+//           [{ text: 'Любое количество.', callback_data: '0_4' }]
+//         ],
+//       right_answer: 4
+//     },
+//   ];
+  
+//   function getRandomQuestion(){
+//     return questions[Math.floor(Math.random()*questions.length)];
+//   }
+  
+//   function newQuestion(msg){
+//     var arr = getRandomQuestion();
+//     var text = arr.title;
+//     var options = {
+//       reply_markup: JSON.stringify({
+//         inline_keyboard: arr.buttons,
+//         parse_mode: 'Markdown'
+//       })
+//     };
+//     chat = msg.hasOwnProperty('chat') ? msg.chat.id : msg.from.id;
+//     bot.sendMessage(chat, text, options);
+//   }
+  
+//   bot.onText(/\/start_test/, function (msg, match) {
+//     newQuestion(msg);
+//   });
+  
+//   bot.on('callback_query', function (msg) {
+//     var answer = msg.data.split('_');
+//     var index = answer[0];
+//     var button = answer[1];
+  
+//     if (questions[index].right_answer==button) {
+//       bot.sendMessage(msg.from.id, 'Ответ верный ✅');
+//     } else {
+//       bot.sendMessage(msg.from.id, 'Ответ неверный ❌');
+//     }
+  
+//     bot.answerCallbackQuery(msg.id, 'Вы выбрали: '+ msg.data, true);
+//     newQuestion(msg);
+//   });
+
 bot.onText(/\/rload/, (msg) => {
     
     bot.sendMessage(msg.chat.id, "Розклад завантажено.", {
     "reply_markup": {
-        "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/час"]]
+        "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
         }
     });
         
@@ -133,23 +190,43 @@ bot.onText(/\/rload/, (msg) => {
 function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.getHours() >= 12) return;  var id = -258056732;
     switch(date.getDay()) {
         case 1: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["1"]["0"]} | ${timeDzilin["0"]}\n\n${pary["1"]["1"]} | ${timeDzilin["1"]}\n\n${pary["1"]["2"]} | ${timeDzilin["2"]}\n\n${pary["1"]["3"]} | ${timeDzilin["3"]}`);
+        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["1"]["0"]} | ${timeDzilin["0"]}\n\n${pary["1"]["1"]} | ${timeDzilin["1"]}\n\n${pary["1"]["2"]} | ${timeDzilin["2"]}\n\n${pary["1"]["3"]} | ${timeDzilin["3"]}`, {
+            "reply_markup": {
+                "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
+                }
+            });
         else return;
         break;
         case 2: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["2"]["0"]} | ${timeDzilin["0"]}\n\n${pary["2"]["1"]} | ${timeDzilin["1"]}\n\n${pary["2"]["2"]} | ${timeDzilin["2"]}\n\n${pary["2"]["3"]} | ${timeDzilin["3"]}`);
+        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["2"]["0"]} | ${timeDzilin["0"]}\n\n${pary["2"]["1"]} | ${timeDzilin["1"]}\n\n${pary["2"]["2"]} | ${timeDzilin["2"]}\n\n${pary["2"]["3"]} | ${timeDzilin["3"]}`, {
+            "reply_markup": {
+                "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
+                }
+            });
         else return;
         break;
         case 3: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["3"]["0"]} | ${timeDzilin["0"]}\n\n${pary["3"]["1"]} | ${timeDzilin["1"]}\n\n${pary["3"]["2"]} | ${timeDzilin["2"]}`);
+        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["3"]["0"]} | ${timeDzilin["0"]}\n\n${pary["3"]["1"]} | ${timeDzilin["1"]}\n\n${pary["3"]["2"]} | ${timeDzilin["2"]}`, {
+            "reply_markup": {
+                "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
+                }
+            });
         else return;
         break;
         case 4: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["4"]["0"]} | ${timeDzilin["0"]}\n\n${pary["4"]["1"]} | ${timeDzilin["1"]}\n\n${pary["4"]["2"]} | ${timeDzilin["2"]}`);
+        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["4"]["0"]} | ${timeDzilin["0"]}\n\n${pary["4"]["1"]} | ${timeDzilin["1"]}\n\n${pary["4"]["2"]} | ${timeDzilin["2"]}`, {
+            "reply_markup": {
+                "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
+                }
+            });
         else return;
         break;
         case 5: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["5"]["0"]} | ${timeDzilin["0"]}\n\n${pary["5"]["1"]} | ${timeDzilin["1"]}\n\n${pary["5"]["2"]} | ${timeDzilin["2"]}`);
+        if (dateHours == "5" && dateMinutes == "20") bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["5"]["0"]} | ${timeDzilin["0"]}\n\n${pary["5"]["1"]} | ${timeDzilin["1"]}\n\n${pary["5"]["2"]} | ${timeDzilin["2"]}`, {
+            "reply_markup": {
+                "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/дзвінки"]]
+                }
+            });
         else return;
         break;
     } //console.log(`${date.getDay()} - ${dateHours}:${dateMinutes}`);
