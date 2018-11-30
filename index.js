@@ -118,7 +118,7 @@ bot.on("message", function (msg) {
     //bot.sendMessage(chatId, text);
 });
 
-bot.onText(/\/розклад/, (msg) => {
+bot.onText(/\/rload/, (msg) => {
     
     bot.sendMessage(msg.chat.id, "Розклад завантажено.", {
     "reply_markup": {
