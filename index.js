@@ -1,4 +1,3 @@
-
 var TelegramBot = require('node-telegram-bot-api');
 var token = process.env.BOT_TOKEN;
 var bot = new TelegramBot(token, {polling: true});
@@ -103,7 +102,7 @@ bot.on("message", function (msg) {
         var otvet = "";
 
         for (var i = 1; i <=5; i++) {
-            if (srtText == i.toString()) {
+            if (srtText.startsWith(`${i.toString()}`)) {
                 for (key in pary[`${i}`]) { otvet += pary[`${i}`][`${key}`] + " | " + timeDzilin[`${key}`] +"\n\n"; }
                 bot.forwardMessage(chatId, chatId, msgId); 
                 return bot.sendMessage(chatId, "✊ Пари на ваш день недiлi такi: \n\n"+otvet);
@@ -118,6 +117,16 @@ bot.on("message", function (msg) {
 
     //bot.sendMessage(chatId, text);
 });
+
+bot.onText(/\/розклад/, (msg) => {
+    
+    bot.sendMessage(msg.chat.id, "Розклад завантажено.", {
+    "reply_markup": {
+        "keyboard": [["/1 Понедiлок", "/2 Вiвторок"], ["/3 Середа", "/4 Четвер"], ["/5 П'ятниця"], ["/час"]]
+        }
+    });
+        
+    });
 
 //var time = new Date();
 
