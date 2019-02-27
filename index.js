@@ -36,6 +36,12 @@ var pary = { "1": {
     "2": "3. Осн. теор. ел. кiл🔌 [105]\nХоржан О.О."
 } };
 
+var timeDzilin = {"0": "08:30 - 09:45 🕘",
+"1": "09:55 - 11:10 🕙",
+"2": "11:20 - 12:35 🕚",
+"3":  "12:45 - 14:00 🕑"
+};
+
 bot.on("message", function (msg) {
 
     var prefix = "/";
@@ -45,22 +51,19 @@ bot.on("message", function (msg) {
     
     var chatId = msg.chat.id;
     var senderId = msg.from.id;
-    // if (senderId == )
     var msgId = msg.message_id;
     var time = new Date();
-
-    bot.sendMessage(655231019, "ID Logger: "+msg.from.first_name+" "+msg.from.last_name +" | "+msg.from.id);
     
     function SrtCheck() {
         var id = -258056732;
         //var id = 655231019
         //var id = -298488871;
         if (chatId == id) return true;
-        else return true;
+        else return false;
     }
 
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
- 
+
     switch(text) {
         case "cmd":
         case "команды":
@@ -82,6 +85,8 @@ bot.on("message", function (msg) {
         // default: bot.forwardMessage(chatId, chatId, msgId); bot.sendMessage(chatId, "404: Command not found.");
         // break;
     }
+
+    bot.sendMessage(655231019, "ID Logger: "+msg.from.first_name+" "+msg.from.last_name +" | "+msg.from.id);
 
     bot.onText(/\/test/, function (msg) {
         var chatId = msg.chat.id;
