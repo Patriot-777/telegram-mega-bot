@@ -60,7 +60,7 @@ bot.on("message", function (msg) {
     }
 
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
-
+ 
     switch(text) {
         case "cmd":
         case "команды":
