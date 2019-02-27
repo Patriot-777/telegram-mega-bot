@@ -59,7 +59,7 @@ bot.on("message", function (msg) {
         //var id = 655231019
         //var id = -298488871;
         if (chatId == id) return true;
-        else return false;
+        else return true;
     }
 
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
@@ -153,7 +153,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
             dejuriki = response;
             console.log(dejuriki);
             
-            bot.sendMessage(chatId, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
+            bot.sendMessage(id, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
             // dejuriki = JSON.parse(JSON.stringify(response));
         }).catch(function(error) {console.log(error);});
     }
@@ -165,7 +165,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
             dejuriki = response;
             console.log(dejuriki);
             
-            bot.sendMessage(chatId, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
+            bot.sendMessage(id, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
             // dejuriki = JSON.parse(JSON.stringify(response));
         }).catch(function(error) {console.log(error);});
     }
@@ -177,7 +177,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
             dejuriki = response;
             console.log(dejuriki);
             
-            bot.sendMessage(chatId, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
+            bot.sendMessage(id, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
             // dejuriki = JSON.parse(JSON.stringify(response));
         }).catch(function(error) {console.log(error);}); 
     }
@@ -189,7 +189,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
             dejuriki = response;
             console.log(dejuriki);
             
-            bot.sendMessage(chatId, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
+            bot.sendMessage(id, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
             // dejuriki = JSON.parse(JSON.stringify(response));
         }).catch(function(error) {console.log(error);});
     }
@@ -201,7 +201,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
             dejuriki = response;
             console.log(dejuriki);
             
-            bot.sendMessage(chatId, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
+            bot.sendMessage(id, "📌 Сьогоднi черговi: "+dejuriki+" ♻");
             // dejuriki = JSON.parse(JSON.stringify(response));
         }).catch(function(error) {console.log(error);});
     }
