@@ -59,7 +59,7 @@ bot.on("message", function (msg) {
         //var id = 655231019
         //var id = -298488871;
         if (chatId == id) return true;
-        else return true;
+        else return false;
     }
 
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
@@ -148,7 +148,7 @@ bot.onText(/\/rload/, (msg) => {
 function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.getHours() >= 12) return;  var id = -258056732;
     switch(date.getDay()) {
         case 1: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["1"]["0"]} | ${timeDzilin["0"]}\n\n${pary["1"]["1"]} | ${timeDzilin["1"]}\n\n${pary["1"]["2"]} | ${timeDzilin["2"]}\n\n${pary["1"]["3"]} | ${timeDzilin["3"]}`);
+        if (dateHours == "4" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["1"]["0"]} | ${timeDzilin["0"]}\n\n${pary["1"]["1"]} | ${timeDzilin["1"]}\n\n${pary["1"]["2"]} | ${timeDzilin["2"]}\n\n${pary["1"]["3"]} | ${timeDzilin["3"]}`);
         getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getList`).then(async function(response) {
             dejuriki = response;
             console.log(dejuriki);
@@ -160,7 +160,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
         else return;
         break;
         case 2: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["2"]["0"]} | ${timeDzilin["0"]}\n\n${pary["2"]["1"]} | ${timeDzilin["1"]}\n\n${pary["2"]["2"]} | ${timeDzilin["2"]}\n\n${pary["2"]["3"]} | ${timeDzilin["3"]}`);
+        if (dateHours == "4" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["2"]["0"]} | ${timeDzilin["0"]}\n\n${pary["2"]["1"]} | ${timeDzilin["1"]}\n\n${pary["2"]["2"]} | ${timeDzilin["2"]}\n\n${pary["2"]["3"]} | ${timeDzilin["3"]}`);
         getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getList`).then(async function(response) {
             dejuriki = response;
             console.log(dejuriki);
@@ -172,7 +172,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
         else return;
         break;
         case 3: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["3"]["0"]} | ${timeDzilin["0"]}\n\n${pary["3"]["1"]} | ${timeDzilin["1"]}\n\n${pary["3"]["2"]} | ${timeDzilin["2"]}`);
+        if (dateHours == "4" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["3"]["0"]} | ${timeDzilin["0"]}\n\n${pary["3"]["1"]} | ${timeDzilin["1"]}\n\n${pary["3"]["2"]} | ${timeDzilin["2"]}`);
         getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getList`).then(async function(response) {
             dejuriki = response;
             console.log(dejuriki);
@@ -184,7 +184,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
         else return;
         break;
         case 4: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["4"]["0"]} | ${timeDzilin["0"]}\n\n${pary["4"]["1"]} | ${timeDzilin["1"]}\n\n${pary["4"]["2"]} | ${timeDzilin["2"]}`);
+        if (dateHours == "4" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["4"]["0"]} | ${timeDzilin["0"]}\n\n${pary["4"]["1"]} | ${timeDzilin["1"]}\n\n${pary["4"]["2"]} | ${timeDzilin["2"]}`);
         getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getList`).then(async function(response) {
             dejuriki = response;
             console.log(dejuriki);
@@ -195,8 +195,8 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
     }
         else return;
         break;
-        case 5: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
-        if (dateHours == "5" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["5"]["0"]} | ${timeDzilin["0"]}\n\n${pary["5"]["1"]} | ${timeDzilin["1"]}\n\n${pary["5"]["2"]} | ${timeDzilin["2"]}`);
+        /* case 5: var dateHours = new Date().getHours(); var dateMinutes = new Date().getMinutes();
+        if (dateHours == "4" && dateMinutes == "20") { bot.sendMessage(id, `Cьогодi будуть такi пари:\n\n ${pary["5"]["0"]} | ${timeDzilin["0"]}\n\n${pary["5"]["1"]} | ${timeDzilin["1"]}\n\n${pary["5"]["2"]} | ${timeDzilin["2"]}`);
         getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getList`).then(async function(response) {
             dejuriki = response;
             console.log(dejuriki);
@@ -206,7 +206,7 @@ function checkDay() { var date = new Date(); if (date.getHours() <= 4 || date.ge
         }).catch(function(error) {console.log(error);});
     }
         else return;
-        break;
+        break; */
     } //console.log(`${date.getDay()} - ${dateHours}:${dateMinutes}`);
 
 }
