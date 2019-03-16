@@ -100,18 +100,33 @@ bot.on("message", function (msg) {
         bot.sendMessage(chatId, resp);
     });
 
-    // bot.onText(/\/dej/, function (msg) {
-    //     var chatId = msg.chat.id;
+    bot.onText(/\/s/, function (msg) {
+        var chatId = msg.chat.id;
 
-    //      getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getList`).then(async function(response) {
-    //         dejuriki = response;
-    //         console.log(dejuriki);
-            
-    //         bot.sendMessage(chatId, "test: "+dejuriki);
-    //         // dejuriki = JSON.parse(JSON.stringify(response));
-    //     }).catch(function(error) {console.log(error);});
+         bot.sendMessage("1. Бережна Алла\n
+         2. Головачов Владислав\n
+         3. Дзюба Максим\n
+         4. Землянiкiн Андрiй\n
+         5. Iсаков Юрiй\n
+         6. Кириченко Владислав\n
+         7. Линник Ярослав\n
+         8. Марченко Роман\n
+         9. Мороз Владислав\n
+         10. Нiчик Владислав\n
+         11. Панченко Тетяна\n
+         12. Параваэнко Володимир\n
+         13. Печенюк Дмитро\n
+         14. Пiдганяк Роман\n
+         15. Попов Вiалiй\n
+         16. Попович Андрiй\n
+         17. Посух Мiлена\n
+         18. Пустовий Роман\n
+         19. Рагульский Дмитро\n
+         20. Скоробогатько Олексiй\n
+         21. Тимошенко Михайло\n
+         22. Шестак Василь");
 
-    // });
+    });
 
     if (SrtCheck() != true) {return;}
     else { 
