@@ -4,6 +4,7 @@ var token = process.env.BOT_TOKEN;
 var bot = new TelegramBot(token, {polling: true});
 var getJSON = require('get-json');
 
+
 var pary = { "1": {
     "0": "1. Укр. Мова🔰 [305]\nНеволiна О.В.",
     "1": "2. Вища математика🔢 [505]\nДiмнич Л.М.",
@@ -59,7 +60,7 @@ bot.on("message", function (msg) {
         //var id = 655231019
         //var id = -298488871;
         if (chatId == id) return true;
-        else return false;
+        else return true;
     }
 
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
@@ -108,6 +109,23 @@ bot.on("message", function (msg) {
         for (var i = 1; i <=5; i++) {
             if (srtText.startsWith(`${i.toString()}`)) {
                 for (key in pary[`${i}`]) { otvet += pary[`${i}`][`${key}`] + " | " + timeDzilin[`${key}`] +"\n\n"; }
+                if (i == 1) {
+                    getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getNedilya=1`).then(async function(response) {
+                        dejuriki = response;
+                        console.log(dejuriki);
+                        
+                        bot.sendMessage(id, otvet+dejuriki);
+                        // dejuriki = JSON.parse(JSON.stringify(response));
+                    }).catch(function(error) {console.log(error);});
+                } else if (i == 2) {
+                    getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getNedilya=2`).then(async function(response) {
+                        dejuriki = response;
+                        console.log(dejuriki);
+                        
+                        bot.sendMessage(id, otvet+dejuriki);
+                        // dejuriki = JSON.parse(JSON.stringify(response));
+                    }).catch(function(error) {console.log(error);});
+                }
                 return bot.sendMessage(chatId, otvet);
             }
         }
@@ -121,7 +139,7 @@ bot.on("message", function (msg) {
 });
 
 bot.onText(/\/s/, function (msg) {
-    bot.sendMessage(msg.chat.id, "1. Бережна Алла\n2. Головачов Владислав\n3. Дзюба Максим\n4. Землянiкiн Андрiй\n5. Iсаков Юрiй\n6. Кириченко Владислав\n7. Линник Ярослав\n8. Марченко Роман\n9. Мороз Владислав\n10. Нiчик Владислав\n11. Панченко Тетяна\n12. Параваэнко Володимир\n13. Печенюк Дмитро\n14. Пiдганяк Роман\n15. Попов Вiталiй\n16. Попович Андрiй\n17. Посух Мiлена\n18. Пустовий Роман\n19. Рагульский Дмитро\n20. Скоробогатько Олексiй\n21. Тимошенко Михайло\n22. Шестак Василь");
+    bot.sendMessage(msg.chat.id, "1. Бережна Алла\n2. Головачов Владислав\n3. Дзюба Максим\n4. Землянiкiн Андрiй\n5. Iсаков Юрiй\n6. Кириченко Владислав\n7. Линник Ярослав\n8. Марченко Роман\n9. Мороз Владислав\n10. Нiчик Владислав\n11. Панченко Тетяна\n12. Параваэнко Володимир\n13. Печенюк Дмитро\n14. Пiдганяк Роман\n15. Попов Вiталiй\n16. Попович Андрiй\n17. Пустовий Роман\n18. Рагульский Дмитро\n19. Скоробогатько Олексiй\n20. Тимошенко Михайло\n21. Шестак Василь");
 });
 
 bot.onText(/\/rload/, (msg) => {
