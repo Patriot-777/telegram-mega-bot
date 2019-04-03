@@ -117,6 +117,7 @@ bot.on("message", function (msg) {
                         return bot.sendMessage(chatId, otvet+dejuriki);
                         // dejuriki = JSON.parse(JSON.stringify(response));
                     }).catch(function(error) {console.log(error);});
+                    return;
                 } else if (i == 2) {
                     getJSON(`http://yaroslav-andreev.ru/TelegaBot/TelegaBot.php?heroku&getNedilya=2`).then(async function(response) {
                         dejuriki = response;
@@ -125,6 +126,7 @@ bot.on("message", function (msg) {
                         return bot.sendMessage(chatId, otvet+dejuriki);
                         // dejuriki = JSON.parse(JSON.stringify(response));
                     }).catch(function(error) {console.log(error);});
+                    return;
                 }
                 return bot.sendMessage(chatId, otvet);
             }
@@ -138,7 +140,7 @@ bot.on("message", function (msg) {
     //bot.sendMessage(chatId, text);
 });
 
-bot.onText(/\/s/, function (msg) {
+bot.onText(/\/s/, function (msg) { if (SrtCheck() != true) return;
     bot.sendMessage(msg.chat.id, "1. Бережна Алла\n2. Головачов Владислав\n3. Дзюба Максим\n4. Землянiкiн Андрiй\n5. Iсаков Юрiй\n6. Кириченко Владислав\n7. Линник Ярослав\n8. Марченко Роман\n9. Мороз Владислав\n10. Нiчик Владислав\n11. Панченко Тетяна\n12. Параваэнко Володимир\n13. Печенюк Дмитро\n14. Пiдганяк Роман\n15. Попов Вiталiй\n16. Попович Андрiй\n17. Пустовий Роман\n18. Рагульский Дмитро\n19. Скоробогатько Олексiй\n20. Тимошенко Михайло\n21. Шестак Василь");
 });
 
