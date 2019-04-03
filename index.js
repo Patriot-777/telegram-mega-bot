@@ -114,7 +114,7 @@ bot.on("message", function (msg) {
                         dejuriki = response;
                         console.log(dejuriki);
                         
-                        otvet = otvet+dejuriki;
+                        return bot.sendMessage(chatId, otvet+dejuriki);
                         // dejuriki = JSON.parse(JSON.stringify(response));
                     }).catch(function(error) {console.log(error);});
                 } else if (i == 2) {
@@ -122,7 +122,7 @@ bot.on("message", function (msg) {
                         dejuriki = response;
                         console.log(dejuriki);
                         
-                        otvet = otvet+dejuriki;
+                        return bot.sendMessage(chatId, otvet+dejuriki);
                         // dejuriki = JSON.parse(JSON.stringify(response));
                     }).catch(function(error) {console.log(error);});
                 }
