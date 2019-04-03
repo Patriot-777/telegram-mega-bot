@@ -60,7 +60,7 @@ bot.on("message", function (msg) {
         //var id = 655231019
         //var id = -298488871;
         if (chatId == id) return true;
-        else return true;
+        else return false;
     }
 
     var com = ["/cmd 📋", "/acc 📃", "/chatInfo 📄"/*, "/say + TestText"*/];
@@ -114,7 +114,7 @@ bot.on("message", function (msg) {
                         dejuriki = response;
                         console.log(dejuriki);
                         
-                        bot.sendMessage(id, otvet+dejuriki);
+                        otvet = otvet+dejuriki;
                         // dejuriki = JSON.parse(JSON.stringify(response));
                     }).catch(function(error) {console.log(error);});
                 } else if (i == 2) {
@@ -122,7 +122,7 @@ bot.on("message", function (msg) {
                         dejuriki = response;
                         console.log(dejuriki);
                         
-                        bot.sendMessage(id, otvet+dejuriki);
+                        otvet = otvet+dejuriki;
                         // dejuriki = JSON.parse(JSON.stringify(response));
                     }).catch(function(error) {console.log(error);});
                 }
